@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xamarin.Essentials.Services", "Xamarin.Essentials.Services\Xamarin.Essentials.Services.csproj", "{2DE9D643-144B-45CF-8B48-CB886FB86738}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Essentials.Services.Tests", "Xamarin.Essentials.Services.Tests\Xamarin.Essentials.Services.Tests.csproj", "{BDAD67B7-44BC-4371-997B-EDE4C4CA0E79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DE9D643-144B-45CF-8B48-CB886FB86738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DE9D643-144B-45CF-8B48-CB886FB86738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DE9D643-144B-45CF-8B48-CB886FB86738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DE9D643-144B-45CF-8B48-CB886FB86738}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDAD67B7-44BC-4371-997B-EDE4C4CA0E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDAD67B7-44BC-4371-997B-EDE4C4CA0E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDAD67B7-44BC-4371-997B-EDE4C4CA0E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDAD67B7-44BC-4371-997B-EDE4C4CA0E79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3940723-41C5-43AD-8F80-C6A0F8507F1E}
+	EndGlobalSection
+EndGlobal
