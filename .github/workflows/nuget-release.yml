@@ -1,4 +1,4 @@
-name: Xamarin.Essentials.Service Release
+name: Xamarin.Essentials.Services Release
 
 on:
   workflow_run:
