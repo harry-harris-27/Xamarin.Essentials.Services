@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;netstandard2.0;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <RootNamespace>Xamarin.Essentials</RootNamespace>
     <Version>1.6.0</Version>
     <Authors>Harry Harris</Authors>
@@ -10,11 +10,9 @@
     <PackageTags>xamarin, windows, uwp, ios, android, watchos, tvos, tizen, toolkit, xamarin.forms, Xamarin.Essentials</PackageTags>
     <Title>Xamarin.Essentials</Title>
     <Description>A service-orientated wrapper library for the Xamarin.Essential cross-platform APIs</Description>
-	<Product>$(AssemblyName) ($(TargetFramework))</Product>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/harry-harris-27/Xamarin.Essentials.Services</PackageProjectUrl>
     <RepositoryUrl>https://github.com/harry-harris-27/Xamarin.Essentials.Services</RepositoryUrl>
-	<DebugType>portable</DebugType>
     <Configurations>Debug;Release</Configurations>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
