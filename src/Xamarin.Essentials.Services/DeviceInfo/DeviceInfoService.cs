@@ -4,20 +4,20 @@ namespace Xamarin.Essentials
 {
     public class DeviceInfoService : IDeviceInfoService
     {
-        public string Model => DeviceInfo.Model;
+        public virtual string Model => DeviceInfo.Model;
 
-        public string Manufacturer => DeviceInfo.Manufacturer;
+        public virtual string Manufacturer => DeviceInfo.Manufacturer;
 
-        public string Name => DeviceInfo.Name;
+        public virtual string Name => DeviceInfo.Name;
 
-        public string VersionString => DeviceInfo.VersionString;
+        public virtual string VersionString => DeviceInfo.VersionString;
 
-        public Version Version => DeviceInfo.Version;
+        public virtual Version Version => DeviceInfo.Version;
 
-        public DevicePlatform Platform => DeviceInfo.Platform;
+        public virtual DevicePlatform Platform => DeviceInfo.Platform;
 
-        public DeviceIdiom Idiom => DeviceInfo.Idiom;
+        public virtual DeviceIdiom Idiom => DeviceInfo.Idiom;
 
-        public DeviceType DeviceType => DeviceInfo.DeviceType;
+        public virtual DeviceType DeviceType => DeviceInfo.DeviceType;
     }
 }

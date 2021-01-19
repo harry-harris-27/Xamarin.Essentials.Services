@@ -6,16 +6,17 @@ namespace Xamarin.Essentials
 {
     public class AppActionsService : IAppActionsService
     {
-        public event EventHandler<AppActionEventArgs> OnAppAction
+        public virtual event EventHandler<AppActionEventArgs> OnAppAction
         {
             add => AppActions.OnAppAction += value;
             remove => AppActions.OnAppAction -= value;
         }
 
-        public Task<IEnumerable<AppAction>> GetAsync() => AppActions.GetAsync();
 
-        public Task SetAsync(params AppAction[] actions) => AppActions.SetAsync(actions);
+        public virtual Task<IEnumerable<AppAction>> GetAsync() => AppActions.GetAsync();
 
-        public Task SetAsync(IEnumerable<AppAction> actions) => AppActions.SetAsync(actions);
+        public virtual Task SetAsync(params AppAction[] actions) => AppActions.SetAsync(actions);
+
+        public virtual Task SetAsync(IEnumerable<AppAction> actions) => AppActions.SetAsync(actions);
     }
 }

@@ -7,12 +7,12 @@ namespace Xamarin.Essentials
 {
     public class TextToSpeechService : ITextToSpeechService
     {
-        public Task<IEnumerable<Locale>> GetLocalesAsync() => TextToSpeech.GetLocalesAsync();
+        public virtual Task<IEnumerable<Locale>> GetLocalesAsync() => TextToSpeech.GetLocalesAsync();
 
-        public Task SpeakAsync(string text, CancellationToken cancellationToken = default) 
+        public virtual Task SpeakAsync(string text, CancellationToken cancellationToken = default) 
             => TextToSpeech.SpeakAsync(text, cancellationToken);
 
-        public Task SpeakAsync(string text, SpeechOptions options, CancellationToken cancellationToken = default)
+        public virtual Task SpeakAsync(string text, SpeechOptions options, CancellationToken cancellationToken = default)
             => TextToSpeech.SpeakAsync(text, options, cancellationToken);
     }
 }

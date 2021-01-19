@@ -6,8 +6,8 @@ namespace Xamarin.Essentials
 {
     public class FilePickerService : IFilePickerService
     {
-        public Task<FileResult> PickAsync(PickOptions options = null) => FilePicker.PickAsync(options);
+        public virtual Task<FileResult> PickAsync(PickOptions options = null) => FilePicker.PickAsync(options);
 
-        public Task<IEnumerable<FileResult>> PickMultipleAsync(PickOptions options = null) => FilePicker.PickMultipleAsync(options);
+        public virtual Task<IEnumerable<FileResult>> PickMultipleAsync(PickOptions options = null) => FilePicker.PickMultipleAsync(options);
     }
 }

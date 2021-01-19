@@ -5,12 +5,12 @@ namespace Xamarin.Essentials
 {
     public class SecureStorageService : ISecureStorageService
     {
-        public Task<string> GetAsync(string key) => SecureStorage.GetAsync(key);
+        public virtual Task<string> GetAsync(string key) => SecureStorage.GetAsync(key);
 
-        public bool Remove(string key) => SecureStorage.Remove(key);
+        public virtual bool Remove(string key) => SecureStorage.Remove(key);
 
-        public void RemoveAll() => SecureStorage.RemoveAll();
+        public virtual void RemoveAll() => SecureStorage.RemoveAll();
 
-        public Task SetAsync(string key, string value) => SecureStorage.SetAsync(key, value);
+        public virtual Task SetAsync(string key, string value) => SecureStorage.SetAsync(key, value);
     }
 }

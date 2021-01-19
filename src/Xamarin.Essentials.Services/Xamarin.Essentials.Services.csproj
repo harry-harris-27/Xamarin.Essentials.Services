@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <RootNamespace>Xamarin.Essentials</RootNamespace>
-    <Version>1.6.0</Version>
     <Authors>Harry Harris</Authors>
     <Company />
 	<Summary>Xamarin.Essentials.Services: a service-orientated wrapper library for the Xamarin.Essential cross-platform APIs</Summary>

@@ -4,20 +4,20 @@ namespace Xamarin.Essentials
 {
     public class CompassService : ICompassService
     {
-        public bool IsMonitoring => Compass.IsMonitoring;
+        public virtual bool IsMonitoring => Compass.IsMonitoring;
 
 
-        public event EventHandler<CompassChangedEventArgs> ReadingChanged
+        public virtual event EventHandler<CompassChangedEventArgs> ReadingChanged
         {
             add => Compass.ReadingChanged += value;
             remove => Compass.ReadingChanged -= value;
         }
 
 
-        public void Start(SensorSpeed sensorSpeed) => Compass.Start(sensorSpeed);
+        public virtual void Start(SensorSpeed sensorSpeed) => Compass.Start(sensorSpeed);
 
-        public void Start(SensorSpeed sensorSpeed, bool applyLowPassFilter) => Compass.Start(sensorSpeed, applyLowPassFilter);
+        public virtual void Start(SensorSpeed sensorSpeed, bool applyLowPassFilter) => Compass.Start(sensorSpeed, applyLowPassFilter);
 
-        public void Stop() => Compass.Stop();
+        public virtual void Stop() => Compass.Stop();
     }
 }

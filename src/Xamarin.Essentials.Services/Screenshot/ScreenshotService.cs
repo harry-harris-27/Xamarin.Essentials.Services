@@ -5,8 +5,8 @@ namespace Xamarin.Essentials
 {
     public class ScreenshotService : IScreenshotService
     {
-        public bool IsCaptureSupported => Screenshot.IsCaptureSupported;
+        public virtual bool IsCaptureSupported => Screenshot.IsCaptureSupported;
 
-        public Task<ScreenshotResult> CaptureAsync() => Screenshot.CaptureAsync();
+        public virtual Task<ScreenshotResult> CaptureAsync() => Screenshot.CaptureAsync();
     }
 }

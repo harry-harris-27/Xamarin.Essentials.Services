@@ -7,9 +7,9 @@ namespace Xamarin.Essentials
 {
     public class ContactsService : IContactsService
     {
-        public Task<IEnumerable<Contact>> GetAllAsync(CancellationToken cancellationToken = default)
+        public virtual Task<IEnumerable<Contact>> GetAllAsync(CancellationToken cancellationToken = default)
             => Contacts.GetAllAsync(cancellationToken);
 
-        public Task<Contact> PickContactAsync() => Contacts.PickContactAsync();
+        public virtual Task<Contact> PickContactAsync() => Contacts.PickContactAsync();
     }
 }

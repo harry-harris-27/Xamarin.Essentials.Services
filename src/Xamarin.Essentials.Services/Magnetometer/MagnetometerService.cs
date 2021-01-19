@@ -4,18 +4,18 @@ namespace Xamarin.Essentials
 {
     public class MagnetometerService : IMagnetometerService
     {
-        public bool IsMonitoring => Magnetometer.IsMonitoring;
+        public virtual bool IsMonitoring => Magnetometer.IsMonitoring;
 
 
-        public event EventHandler<MagnetometerChangedEventArgs> ReadingChanged
+        public virtual event EventHandler<MagnetometerChangedEventArgs> ReadingChanged
         {
             add => Magnetometer.ReadingChanged += value;
             remove => Magnetometer.ReadingChanged -= value;
         }
 
 
-        public void Start(SensorSpeed sensorSpeed) => Magnetometer.Start(sensorSpeed);
+        public virtual void Start(SensorSpeed sensorSpeed) => Magnetometer.Start(sensorSpeed);
 
-        public void Stop() => Magnetometer.Stop();
+        public virtual void Stop() => Magnetometer.Stop();
     }
 }

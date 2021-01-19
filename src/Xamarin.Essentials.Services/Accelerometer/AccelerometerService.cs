@@ -4,25 +4,25 @@ namespace Xamarin.Essentials
 {
     public class AccelerometerService : IAccelerometerService
     {
-        public bool IsMonitoring => Accelerometer.IsMonitoring;
+        public virtual bool IsMonitoring => Accelerometer.IsMonitoring;
 
 
-        public event EventHandler<AccelerometerChangedEventArgs> ReadingChanged
+        public virtual event EventHandler<AccelerometerChangedEventArgs> ReadingChanged
         {
             add => Accelerometer.ReadingChanged += value;
             remove => Accelerometer.ReadingChanged -= value;
         }
 
-        public event EventHandler ShakeDetected
+        public virtual event EventHandler ShakeDetected
         {
             add => Accelerometer.ShakeDetected += value;
             remove => Accelerometer.ShakeDetected -= value;
         }
 
 
-        public void Start(SensorSpeed sensorSpeed) => Accelerometer.Start(sensorSpeed);
+        public virtual void Start(SensorSpeed sensorSpeed) => Accelerometer.Start(sensorSpeed);
 
-        public void Stop() => Accelerometer.Stop();
+        public virtual void Stop() => Accelerometer.Stop();
 
     }
 }

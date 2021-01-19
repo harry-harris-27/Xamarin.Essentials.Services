@@ -4,6 +4,6 @@ namespace Xamarin.Essentials
 {
     public class PhoneDialerService : IPhoneDialerService
     {
-        public void Open(string number) => PhoneDialer.Open(number);
+        public virtual void Open(string number) => PhoneDialer.Open(number);
     }
 }

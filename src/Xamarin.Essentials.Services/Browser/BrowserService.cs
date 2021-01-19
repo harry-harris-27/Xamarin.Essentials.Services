@@ -5,16 +5,16 @@ namespace Xamarin.Essentials
 {
     public class BrowserService : IBrowserService
     {
-        public Task OpenAsync(string uri) => Browser.OpenAsync(uri);
+        public virtual Task OpenAsync(string uri) => Browser.OpenAsync(uri);
 
-        public Task OpenAsync(string uri, BrowserLaunchMode launchMode) => Browser.OpenAsync(uri, launchMode);
+        public virtual Task OpenAsync(string uri, BrowserLaunchMode launchMode) => Browser.OpenAsync(uri, launchMode);
 
-        public Task OpenAsync(string uri, BrowserLaunchOptions options) => Browser.OpenAsync(uri, options);
+        public virtual Task OpenAsync(string uri, BrowserLaunchOptions options) => Browser.OpenAsync(uri, options);
 
-        public Task OpenAsync(Uri uri) => Browser.OpenAsync(uri);
+        public virtual Task OpenAsync(Uri uri) => Browser.OpenAsync(uri);
 
-        public Task OpenAsync(Uri uri, BrowserLaunchMode launchMode) => Browser.OpenAsync(uri, launchMode);
+        public virtual Task OpenAsync(Uri uri, BrowserLaunchMode launchMode) => Browser.OpenAsync(uri, launchMode);
 
-        public Task<bool> OpenAsync(Uri uri, BrowserLaunchOptions options) => Browser.OpenAsync(uri, options);
+        public virtual Task<bool> OpenAsync(Uri uri, BrowserLaunchOptions options) => Browser.OpenAsync(uri, options);
     }
 }

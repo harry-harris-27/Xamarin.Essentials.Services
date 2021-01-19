@@ -4,18 +4,18 @@ namespace Xamarin.Essentials
 {
     public class GyroscopeService : IGyroscopeService
     {
-        public bool IsMonitoring => Gyroscope.IsMonitoring;
+        public virtual bool IsMonitoring => Gyroscope.IsMonitoring;
 
-        
-        public event EventHandler<GyroscopeChangedEventArgs> ReadingChanged
+
+        public virtual event EventHandler<GyroscopeChangedEventArgs> ReadingChanged
         {
             add => Gyroscope.ReadingChanged += value;
             remove => Gyroscope.ReadingChanged -= value;
         }
 
 
-        public void Start(SensorSpeed sensorSpeed) => Gyroscope.Start(sensorSpeed);
+        public virtual void Start(SensorSpeed sensorSpeed) => Gyroscope.Start(sensorSpeed);
 
-        public void Stop() => Gyroscope.Stop();
+        public virtual void Stop() => Gyroscope.Stop();
     }
 }

@@ -6,10 +6,10 @@ namespace Xamarin.Essentials
 {
     public class FileSystemService : IFileSystemService
     {
-        public string CacheDirectory => FileSystem.CacheDirectory;
+        public virtual string CacheDirectory => FileSystem.CacheDirectory;
 
-        public string AppDataDirectory => FileSystem.AppDataDirectory;
+        public virtual string AppDataDirectory => FileSystem.AppDataDirectory;
 
-        public Task<Stream> OpenAppPackageFileAsync(string filename) => FileSystem.OpenAppPackageFileAsync(filename);
+        public virtual Task<Stream> OpenAppPackageFileAsync(string filename) => FileSystem.OpenAppPackageFileAsync(filename);
     }
 }

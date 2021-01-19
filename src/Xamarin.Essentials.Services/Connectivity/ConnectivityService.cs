@@ -5,12 +5,12 @@ namespace Xamarin.Essentials
 {
     public class ConnectivityService : IConnectivityService
     {
-        public NetworkAccess NetworkAccess => Connectivity.NetworkAccess;
+        public virtual NetworkAccess NetworkAccess => Connectivity.NetworkAccess;
 
-        public IEnumerable<ConnectionProfile> ConnectionProfiles => Connectivity.ConnectionProfiles;
+        public virtual IEnumerable<ConnectionProfile> ConnectionProfiles => Connectivity.ConnectionProfiles;
 
 
-        public event EventHandler<ConnectivityChangedEventArgs> ConnectivityChanged
+        public virtual event EventHandler<ConnectivityChangedEventArgs> ConnectivityChanged
         {
             add => Connectivity.ConnectivityChanged += value;
             remove => Connectivity.ConnectivityChanged -= value;        
