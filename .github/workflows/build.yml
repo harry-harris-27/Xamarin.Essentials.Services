@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  release:
+    types:
+      - published
 
 env:
   # Stop wasting time caching packages
@@ -21,7 +24,8 @@ env:
   NUGET_FEED: https://api.nuget.org/v3/index.json
   NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
   CONFIGURATION: 'Release'
-
+  DOTNET_VERSION: 3.1.x
+  
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -34,7 +38,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.x
+        dotnet-version: ${{ DOTNET_VERSION }}
      
     - name: Restore dependencies 
       run: dotnet restore src
@@ -43,7 +47,7 @@ jobs:
       run: dotnet build src --configuration ${{ env.CONFIGURATION }} --no-restore
       
     - name: Test
-      run: dotnet test src --configuration ${{ env.CONFIGURATION }} --verbosity normal
+      run: dotnet test src --configuration ${{ env.CONFIGURATION }} --no-build --verbosity normal
       
     - name: Pack
       if: matrix.os == 'ubuntu-latest'
@@ -71,8 +75,28 @@ jobs:
             curl -vX PUT -u "$GITHUB_USER:$GITHUB_TOKEN" -F package=@$f $GITHUB_FEED
           done
           
-  #release:
-  #  needs: build
-  #  if: gituhub.event_name == 'release'
-  #  runs-on: ubuntu-latest
-    
+  release:
+    needs: build
+    if: gituhub.event_name == 'release'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2        
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          version: ${{ DOTNET_VERSION }}
+      - name: Create NuGet package
+        run: |
+          arrTag=(${GITHUB_REF//\// })
+          VERSION="${arrTag[2]}"
+          VERSION="${VERSION//v}"
+          dotnet pack -v normal -c ${{ CONFIGURATION }} --include-symbols --include-source -p:PackageVersion=$VERSION -o nupkg src/$PROJECT_NAME/$PROJECT_NAME.*proj
+      - name: Push to GitHub Feed
+        run: |
+          for f in ./nupkg/*.nupkg
+          do
+            curl -vX PUT -u "$GITHUB_USER:$GITHUB_TOKEN" -F package=@$f $GITHUB_FEED
+          done
+      - name: Push to NuGet Feed
+        run: dotnet nuget push ./nupkg/*.nupkg --source $NUGET_FEED --skip-duplicate --api-key $NUGET_KEY
+            
