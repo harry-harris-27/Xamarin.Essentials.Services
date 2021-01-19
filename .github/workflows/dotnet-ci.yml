@@ -8,19 +8,38 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
     env:
-      config: 'Release'
+      CONFIGURATION: 'Release'
+      PROJECT_NAME: "Xamarin.Essentials.Services"
 
     steps:
     - uses: actions/checkout@v2
+      
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
+     
     - name: Restore dependencies 
       run: dotnet restore src
+      
     - name: Build
-      run: dotnet build src --configuration Release --no-restore
+      run: dotnet build src --configuration ${{ env.CONFIGURATION }} --no-restore
+      
     - name: Test
-      run: dotnet test src --configuration Release --verbosity normal
+      run: dotnet test src --configuration ${{ env.CONFIGURATION }} --verbosity normal
+      
+    - name: Pack
+      if: matrix.os == 'ubuntu-latest'
+      run: dotnet pack -v normal -c ${{ env.CONFIGURATION }} --no-restore --include-symbols --include-source -p:PackageVersion=$GITHUB_RUN_ID src/${{ env.PROJECT_NAME }}/*.csproj
+    
+    - name: Upload Artifact
+      if: matrix.os == 'ubuntu-latest'
+      uses: actions/upload-artifact@v2
+      with:
+        name: nupkg
+        path: ./src/${{ env.PROJECT_NAME }}/bin/Release/*.nupkg
