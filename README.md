@@ -2,7 +2,7 @@
 
 [![NuGet Package](https://img.shields.io/nuget/v/Xamarin.Essentials.Services.svg?logo=nuget&logoColor=white&&style=for-the-badge&colorB=blue)](https://www.nuget.org/packages/Xamarin.Essentials.Services)
 
-Xamarin.Essentials.Services offers a service-orientated approach to consuming the [Xamarin.Essentials](https://github.com/xamarin/Essentials) cross-platform APIs. This approach provides develops with the facilities for:
+Xamarin.Essentials.Services offers a service-orientated approach to consuming the [Xamarin.Essentials](https://github.com/xamarin/Essentials) cross-platform APIs. This approach provides developers with the facilities for:
 - Customization of Xamarin.Essentials features
 - Dependency injection
 - Mocking of Xamarin.Essentials feature for easier testing
