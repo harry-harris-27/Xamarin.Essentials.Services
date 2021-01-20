@@ -97,7 +97,7 @@ jobs:
           arrTag=(${GITHUB_REF//\// })
           VERSION="${arrTag[2]}"
           VERSION="${VERSION//v}"
-          dotnet pack -v normal -c ${{ env.CONFIGURATION }} --no-restore --include-symbols --include-source -p:PackageVersion=$VERSION src/${{ env.PROJECT_NAME }}/*.csproj
+          dotnet pack -v normal -c ${{ env.CONFIGURATION }} --include-symbols --include-source -p:PackageVersion=$VERSION src/${{ env.PROJECT_NAME }}/*.csproj
       - name: Push to GitHub Feed
         run: |
           for f in ./nupkg/*.nupkg
